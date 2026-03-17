@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('external_id');
+            $table->bigInteger('external_id')->unique();
             $table->bigInteger('hotel_id');
             $table->string('name');
             $table->integer('inventory_count');

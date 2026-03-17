@@ -45,13 +45,16 @@ class ImportXmlData extends Command
 
         $roomsXml = simplexml_load_file(storage_path('xml/rooms.xml'));
 
-        foreach ($roomsXml->room as $room) {
-            Room::create([
-                'external_id' => (string) $room['id'],
+        foreach ($roomsXml->room as $room) {   
+
+            Room::updateOrCreate(
+                ['external_id' => (string) $room['id']], 
+                [
                 'hotel_id' => (string) $room['hotel_id'],
                 'name' => (string) $room,
-                'inventory_count' => (int) $room['inventory_count']
-            ]);
+                'inventory_count' => (int) $room['inventory_count'],
+                ]
+            );
         }
 
         $this->info('Quartos importados com sucesso!');
