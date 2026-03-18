@@ -12,4 +12,9 @@ class Room extends Model
         'name',
         'inventory_count'
     ];
+
+    public function reservations()
+    {
+        return $this->hasMany(\App\Models\Reservation::class);
+    }
 }

@@ -74,6 +74,8 @@ class RoomController extends Controller
             return response()->json(['error' => 'Quarto não encontrado'], 404);
         }
 
+        $room->reservations()->delete();
+
         $room->delete();
 
         return response()->json(['message' => 'Quarto excluido'], 200);

@@ -9,10 +9,16 @@ class Reservation extends Model
     protected $fillable = [
         'external_id',
         'hotel_id',
-        'costumer_first_name',
-        'costumer_last_name',
+        'room_id',
+        'customer_first_name',
+        'customer_last_name',
         'arrival_date',
         'departure_date',
         'total_price'
     ];
+
+    public function room()
+    {
+        return $this->belongsTo(\App\Models\Room::class);
+    }
 }
