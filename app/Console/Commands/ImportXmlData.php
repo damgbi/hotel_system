@@ -65,28 +65,21 @@ class ImportXmlData extends Command
         $reservationsXml = simplexml_load_file(storage_path('xml/reservations.xml'));
         foreach ($reservationsXml->reservation as $reservation) {
 
-            $roomXml = $reservation->room ?? null;
+            $rooms = $reservation->rooms->room ?? [];
 
-            if (!$roomXml) {
-                continue;
-            }
+            foreach ($rooms as $room) {
 
-            $room = \App\Models\Room::where('external_id', (string) $roomXml->id)->first();
-
-            if (!$room) {
-                continue;
-            }
-
-            \App\Models\Reservation::create([
-                'external_id' => (string) $reservation->id,
-                'hotel_id' => (string) $reservation->hotel_id,
-                'room_id' => $room->id,
-                'customer_first_name' => (string) $reservation->customer->first_name,
-                'customer_last_name' => (string) $reservation->customer->last_name,
-                'arrival_date' => (string) $roomXml->arrival_date,
-                'departure_date' => (string) $roomXml->departure_date,
-                'total_price' => (float) $roomXml->totalprice ?? 0
+                Reservation::create([
+                    'external_id' => (string) $reservation->id,
+                    'hotel_id' => (string) $reservation->hotel_id,
+                    'room_id' => (string) $reservation->room_id,
+                    'customer_first_name' => (string) $reservation->customer->first_name,
+                    'customer_last_name' => (string) $reservation->customer->last_name,
+                    'arrival_date' => (string) $reservation->arrival_date,
+                    'departure_date' => (string) $reservation->departure_date,
+                    'total_price' => (float) $reservation->totalprice ?? 0
                 ]);
+            }
             
         }
 

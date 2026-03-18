@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Reservation;
 use App\Models\Room;
-use App\Models\Hotel;
 use Illuminate\Http\Request;
 
 class ReservationController extends Controller
@@ -21,14 +20,13 @@ class ReservationController extends Controller
 
     public function store(Request $request)
     {   
-        dd($request->all());
         
         $validated = $request->validate([
             'external_id' => 'required',
             'hotel_id' => 'required|exists:hotels,id',
             'room_id' => 'required|exists:rooms,id',
-            'costumer_first_name' => 'required|string',
-            'costumer_last_name' => 'required|string',
+            'customer_first_name' => 'required|string',
+            'customer_last_name' => 'required|string',
             'arrival_date' => 'required|date',
             'departure_date' => 'required|date|after:arrival_date',
             'total_price' => 'required|numeric'

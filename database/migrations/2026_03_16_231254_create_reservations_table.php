@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('external_id');
-            $table->bigInteger('hotel_id');
+            $table->string('external_id');
+            $table->foreignId('hotel_id')->constrained()->onDelete('cascade');
+            $table->foreignId('room_id')->constrained()->onDelete('cascade');
             $table->string('customer_first_name');
             $table->string('customer_last_name');
             $table->date('arrival_date');

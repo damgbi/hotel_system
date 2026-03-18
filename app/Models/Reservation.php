@@ -17,6 +17,11 @@ class Reservation extends Model
         'total_price'
     ];
 
+    public function hotel()
+    {
+        return $this->belongsTo(\App\Models\Hotel::class);
+    }
+
     public function room()
     {
         return $this->belongsTo(\App\Models\Room::class);

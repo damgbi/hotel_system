@@ -10,4 +10,15 @@ class Hotel extends Model
         'external_id',
         'name'
     ];
+
+    public function rooms()
+        {
+            return $this->hasMany(\App\Models\Room::class);
+        }
+
+    public function reservations()
+        {
+            return $this->hasMany(\App\Models\Reservation::class);
+        }
 }
+

@@ -13,6 +13,11 @@ class Room extends Model
         'inventory_count'
     ];
 
+    public function hotel()
+    {
+        return $this->belongsTo(\App\Models\Hotel::class);
+    }
+
     public function reservations()
     {
         return $this->hasMany(\App\Models\Reservation::class);
