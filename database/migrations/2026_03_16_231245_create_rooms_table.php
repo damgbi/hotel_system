@@ -17,6 +17,8 @@ return new class extends Migration
             $table->bigInteger('hotel_id');
             $table->string('name');
             $table->integer('inventory_count');
+            $table->unsignedBigInteger('id_hotel');
+            $table->foreign('id_hotel')->references('id')->on('hotels')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
