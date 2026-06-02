@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HotelController;
+use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\RoomController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,9 +21,7 @@ Route::group([
         return view('admin.hotels');
     })->name('hotels');
 
-    Route::get('reservations', function() {
-        return view('admin.reservations');
-    })->name('reservations');
+    Route::get('admin/reservations', [ReservationController::class, 'index'])->name('reservations');
 
     Route::get('rooms', function() {
         return view('admin.rooms');

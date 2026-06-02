@@ -10,12 +10,9 @@ class ReservationController extends Controller
 {   
     public function index()
     {
-        $reservations = \App\Models\Reservation::all();
+        $reservations = Reservation::all();
 
-        return response()->json([
-            'data' => $reservations,
-            'status' => 200
-        ]);
+        return view('admin/reservations', compact('reservations'));
     }
 
     public function store(Request $request)
