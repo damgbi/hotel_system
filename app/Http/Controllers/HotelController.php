@@ -1,7 +1,3 @@
-@extends('admin.layout')
-
-@section('conteudo')
-<h1>Hotels</h1>
 <?php
 
 namespace App\Http\Controllers;
@@ -13,8 +9,7 @@ class HotelController extends Controller
 {
     public function index() {
         $hotels = Hotel::all();
-        return view('admin/hotels', ['hotels' => $hotels]);
+        return view('admin.hotels', ['hotels' => $hotels]);
     }
 }
 ?>
-@endsection

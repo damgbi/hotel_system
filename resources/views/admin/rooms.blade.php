@@ -3,11 +3,16 @@
 @section('title', 'Rooms')
 
 @section('conteudo')
-<h1>Rooms</h1>
+<div class="row container">
 
-<?php foreach ($rooms as $room): ?>
-    {{ $room->number }} - {{ $room->type }}
-    {{ $room->description }}
-<?php endforeach; ?>
-
+@foreach ($rooms as $room)
+    <div class="col s12 m3">
+        <div class="card-content">
+        <span class="card-title">{{ $room->name }}</span>
+        <p style="text-overflow: ellipsis;">Id do quarto: {{ $room->id }}</p>
+        <p style="text-overflow: ellipsis;">Contagem de inventário: {{ $room->inventory_count }}</p>
+        </div>  
+    </div>  
+@endforeach
+</div>
 @endsection

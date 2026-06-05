@@ -5,8 +5,16 @@
 @section('conteudo')
 <h1>Hotels</h1>
 
-<?php foreach ($hotels as $hotel): ?>
-    {{ $hotel->name }} - {{ $hotel->location }}
-    {{ $hotel->description }}
-<?php endforeach; ?>
+<div class="row container">
+
+    @foreach ($hotels as $hotel)
+        <div class="col s12 m3">
+            <div class="card-content">
+            <span class="card-title">{{ $hotel->name}}</span>
+            <p style="text-overflow: ellipsis;">{{ $hotel->external_id }}</p>
+            </div>
+        </div>
+    @endforeach
+
+</div>
 @endsection

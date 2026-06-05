@@ -4,14 +4,19 @@
 
 @section('conteudo')
 <h1>Reservations</h1>
+<div class="row container">
 
-<?php 
-use Illuminate\Http\Request;
-use App\Models\Reservations;
+@foreach ($reservations as $reservation)
+    <div class="col s12 m3">
+            <div class="card-content">
+            <span class="card-title">{{ $hotel->name}}</span>
+            <p>{{ $reservation->customer_first_name }} {{ $reservation->customer_last_name }}</p>
+            <p>Quarto: {{ $reservation->room_number }}</p>
+            <p> check-in: {{ $reservation->arrival_date }} check-out: {{ $reservation->departure_date }}</p>
+            </div>
+    </div>
 
-foreach ($reservations as $reservation):
-    echo $reservation->customer_first_name . " " . $reservation->customer_last_name . " - " . $reservation->room_number;
-    echo $reservation->arrival_date . " to " . $reservation->departure_date;
-endforeach; 
-?>
+@endforeach;
+</div> 
+
 @endsection

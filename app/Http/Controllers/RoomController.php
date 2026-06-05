@@ -14,7 +14,7 @@ class RoomController extends Controller
     {   
         $rooms = Room::all();
 
-        return response()->json(['data' => $rooms, 'status' => 200]);
+        return view('admin.rooms', compact('rooms'));
     }
 
     /**

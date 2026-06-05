@@ -17,14 +17,10 @@ Route::group([
     'prefix' => 'admin',
     'as' => 'admin.',
 ], function() {
-    Route::get('hotels', function() {
-        return view('admin.hotels');
-    })->name('hotels');
+    Route::get('hotels', [HotelController::class, 'index'])->name('hotels');
 
-    Route::get('admin/reservations', [ReservationController::class, 'index'])->name('reservations');
+    Route::get('reservations', [ReservationController::class, 'index'])->name('reservations');
 
-    Route::get('rooms', function() {
-        return view('admin.rooms');
-    })->name('rooms');
+    Route::get('rooms', [RoomController::class, 'index'])->name('rooms');
 });
 
