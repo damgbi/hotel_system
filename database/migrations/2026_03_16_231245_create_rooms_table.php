@@ -14,11 +14,9 @@ return new class extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('external_id')->unique();
-            $table->bigInteger('hotel_id');
+            $table->foreignId('hotel_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->string('name');
             $table->integer('inventory_count');
-            $table->unsignedBigInteger('id_hotel');
-            $table->foreign('id_hotel')->references('id')->on('hotels')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

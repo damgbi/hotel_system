@@ -21,17 +21,6 @@ return new class extends Migration
             $table->date('arrival_date');
             $table->date('departure_date');
             $table->decimal('total_price', 10, 2);
-            $table->unsignedBigInteger('id_hotel');
-            $table->foreign('id_hotel')->references('id')->on('hotels')->onDelete('cascade')->onUpdate('cascade');
-            $table->timestamps();
-        });
-
-        Schema::create('reservations_rooms', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('id_rooms');
-            $table->foreign('id_rooms')->references('id')->on('rooms')->onDelete('cascade')->onUpdate('cascade');
-            $table->unsignedBigInteger('id_reservations');
-            $table->foreign('id_reservations')->references('id')->on('reservations')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
