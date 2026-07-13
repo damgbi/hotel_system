@@ -2,7 +2,9 @@
 
 @section('title', 'Rooms')
 
-@section('conteudo')
+@section('content')
+<h1>Quartos</h1>
+
 <div class="row container">
 
 @foreach ($rooms as $room)
