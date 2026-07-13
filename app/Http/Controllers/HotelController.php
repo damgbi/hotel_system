@@ -8,7 +8,9 @@ use \App\Models\Hotel;
 class HotelController extends Controller
 {
     public function index() {
-        return view('site.home');
+        $hotels = Hotel::all();
+
+        return view('admin.hotels', compact('hotels'));
     }
 }
 ?>

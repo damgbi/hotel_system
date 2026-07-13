@@ -14,10 +14,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
-Route::get('/home', [HotelController::class, 'index'])->name('home');
-
 Route::group(['prefix' => 'admin'] , function () {
-    
+    Route::get('/hoteis', [HotelController::class, 'index'])->name('admin.hoteis');
+    Route::get('/reservas', [ReservationController::class, 'index'])->name('admin.reservas');
+    Route::get('/quartos', [RoomController::class, 'index'])->name('admin.quartos');    
 });
 
 

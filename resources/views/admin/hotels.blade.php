@@ -2,7 +2,8 @@
 
 @section('title', 'Hotels')
 
-@section('conteudo')
+
+@section('content')
 <h1>Hotels</h1>
 
 <div class="row container">
