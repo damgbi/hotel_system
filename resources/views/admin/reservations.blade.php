@@ -41,4 +41,8 @@
     </div>    
 </div>
 
+<div class="row center">
+    {{ $reservations->links('custom.pagination') }}
+</div>
+
 @endsection

@@ -20,4 +20,6 @@ Route::group(['prefix' => 'admin'] , function () {
     Route::get('/quartos', [RoomController::class, 'index'])->name('admin.quartos');    
 });
 
+Route::get('/hotels/{id}', [HotelController::class, 'details'])->name('admin.hotelDetails');
+
 

@@ -12,5 +12,11 @@ class HotelController extends Controller
 
         return view('admin.hotels', compact('hotels'));
     }
+
+    public function details($id) {
+        $hotel = Hotel::where('id', $id)->first();
+
+        return view('admin.hotelDetails', compact('hotel'));
+    }
 }
 ?>
