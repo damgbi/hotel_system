@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col s12">
                 <h4 class="indigo-text text-darken-4" style="font-weight: 700; margin-bottom: 5px; display: flex; align-items: center; gap: 10px">
-                    <h1>Detalhe do hotel:</h1>
+                    <h1>Detalhes do hotel:</h1>
                 </h4>
                 <p class="grey-text text-darken-1" style="font-size: 1.1rem; margin-top: 0;">
                     Visualize as informações detalhadas do hotel selecionado, incluindo seu nome e ID externo.
