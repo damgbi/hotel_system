@@ -24,5 +24,16 @@ class AuthController extends Controller
         return back()->withErrors([
             'email' => 'As credenciais fornecidas não coincidem com nossos registros.',
         ])->onlyInput('email');
-    }    
+    }
+    
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()->route('login');
+    }
 }

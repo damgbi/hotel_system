@@ -16,7 +16,7 @@ Route::get('/home', function () {
 });
 
 Route::get('/login', function () {
-    return view('login');
+    return view('site.home');
 })->name('login');
 
 Route::post('/login', [AuthController::class, 'login']);

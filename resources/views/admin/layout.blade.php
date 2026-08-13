@@ -27,6 +27,14 @@
             <li><a href="{{ route('admin.quartos') }}">Quartos</a></li>
             <li><a href="{{ route('admin.reservas') }}">Reservas</a></li>
            </ul>
+           <ul id="nav-mobile" class="right">
+                <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                 @csrf
+                    <button type="submit" class="btn-flat white-text waves-effect waves-light" style="background: none; border: none; padding: 0; cursor: pointer;">
+                     Sair
+                    </button>
+                </form>
+           </ul>    
         </div>
     </nav>
 
